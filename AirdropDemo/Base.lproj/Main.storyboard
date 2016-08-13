@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BR2-iG-HLk">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--AirDrop Demo-->
+        <scene sceneID="j7m-xS-X7B">
+            <objects>
+                <tableViewController id="kPP-Ve-Nmy" customClass="FileTableViewController" customModule="AirdropDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GcJ-9x-1iV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Uv8-Nz-FCt">
+                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uv8-Nz-FCt" id="8ns-t3-PCv">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="3Sh-Oa-aOq" kind="show" identifier="showFileDetail" id="BwM-Vu-x2a"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kPP-Ve-Nmy" id="rtM-9M-RvH"/>
+                            <outlet property="delegate" destination="kPP-Ve-Nmy" id="dm5-Hf-39j"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="AirDrop Demo" id="4aY-F6-Lc7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BPN-e0-7e6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="194"/>
+        </scene>
+        <!--File Detail View Controller-->
+        <scene sceneID="oGf-9f-gIK">
+            <objects>
+                <viewController id="3Sh-Oa-aOq" customClass="FileDetailViewController" customModule="AirdropDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m0W-ei-LcS"/>
+                        <viewControllerLayoutGuide type="bottom" id="vjl-AU-Pq7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rmP-a4-Wl4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R88-bG-kH8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7I-DL-6yK">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="Kiw-g0-aOU">
+                                        <connections>
+                                            <action selector="share:" destination="3Sh-Oa-aOq" id="T9Q-Ig-oNt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v7I-DL-6yK" firstAttribute="leading" secondItem="R88-bG-kH8" secondAttribute="leading" id="9uU-Ox-rVZ"/>
+                            <constraint firstItem="R88-bG-kH8" firstAttribute="leading" secondItem="rmP-a4-Wl4" secondAttribute="leading" id="Jsx-1p-jHa"/>
+                            <constraint firstItem="v7I-DL-6yK" firstAttribute="trailing" secondItem="R88-bG-kH8" secondAttribute="trailing" id="Lhv-dj-oL9"/>
+                            <constraint firstAttribute="trailing" secondItem="R88-bG-kH8" secondAttribute="trailing" id="XEV-gM-jd0"/>
+                            <constraint firstItem="v7I-DL-6yK" firstAttribute="bottom" secondItem="vjl-AU-Pq7" secondAttribute="top" id="iAD-ZH-UI3"/>
+                            <constraint firstItem="R88-bG-kH8" firstAttribute="top" secondItem="rmP-a4-Wl4" secondAttribute="top" id="oNR-4f-kMA"/>
+                            <constraint firstItem="R88-bG-kH8" firstAttribute="bottom" secondItem="vjl-AU-Pq7" secondAttribute="top" id="rVL-OD-Dcw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="R88-bG-kH8" id="Hb4-16-oZS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9g-uG-7KJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1818" y="194"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dLb-zH-MKq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BR2-iG-HLk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qQX-hv-XmZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kPP-Ve-Nmy" kind="relationship" relationship="rootViewController" id="dXQ-Pf-NDG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZEu-9n-4Cq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365" y="194"/>
+        </scene>
+    </scenes>
+</document>
